@@ -1,7 +1,7 @@
 {
-	"name": "terraform-awscli",  
+	"name": "sdm-devcon",  
 	"build": {
-		"dockerfile": "terraform-aws-cli",
+		"dockerfile": "sdm-devcon",
 		"context": ".",
 	  },
 	  "runArgs": [
