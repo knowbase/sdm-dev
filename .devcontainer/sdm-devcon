@@ -1,4 +1,10 @@
-FROM docker.io/hashicorp/terraform:latest
+FROM alpine
+
+LABEL maintainer Bill Wang <ozbillwang@gmail.com>
+
+RUN apk --update add git less openssh && \
+    rm -rf /var/lib/apt/lists/* && \
+    rm /var/cache/apk/*
 RUN apk add --no-cache \
         python3 \
         py3-pip \
@@ -7,3 +13,10 @@ RUN apk add --no-cache \
         awscli \
     && rm -rf /var/cache/apk/*
 RUN aws --version
+
+VOLUME /git
+WORKDIR /git
+
+ENTRYPOINT ["git"]
+CMD ["--help"]
+
